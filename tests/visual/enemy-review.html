@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>敌人换模检查 · 巷战回声</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#19251f;color:#eee2c6;font:16px system-ui,sans-serif}main{max-width:1600px;margin:auto;padding:22px}h1{font-size:24px;margin:0 0 10px}p{color:#c6bba2}nav{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}button,a{font:inherit;border:1px solid #b6a077;background:#29382f;color:inherit;padding:9px 16px;cursor:pointer;text-decoration:none}button[aria-pressed=true]{background:#a14f36}canvas{display:block;width:100%;height:390px}#labels{display:grid;grid-template-columns:repeat(6,1fr);text-align:center;font-size:17px;padding:14px 0}#status{min-height:28px}
+</style>
+<main><h1>敌人换模检查</h1><p>实际游戏模型与动作。检查五类小兵、精英和全部头目的体型、服装、预警、攻击及受击。<a href="enemy-arena.html">进入实战检查场</a></p>
+<nav><button data-group="troops" aria-pressed="true">小兵与精英</button><button data-group="bosses">五位头目与最终第二阶段</button><button id="face">转为向左</button></nav>
+<nav><button data-state="idle" aria-pressed="true">待机</button><button data-state="walk">行走</button><button data-state="guard">格挡</button><button data-state="windup">预警蓄力</button><button data-state="strike">攻击命中</button><button data-state="recover">收招</button><button data-state="hurt">受击</button><button data-state="play">播放招式</button></nav>
+<div id="status">正在加载本地模型…</div><canvas id="review" aria-label="敌人模型对照"></canvas><div id="labels"></div></main>
+<script type="module">
+import { WorldRenderer } from '../../src/renderer.js';
+import { ENEMIES, LEVELS } from '../../src/data.js';
+const canvas=document.querySelector('canvas'), world=new WorldRenderer(canvas,{quality:'high',shake:false,effects:0});
+let group='troops',state='idle',facing=1,origin=performance.now();
+const troops=Object.values(ENEMIES).map(e=>({...e,type:e.id,health:e.hp,maxHealth:e.hp}));
+const bosses=LEVELS.map(e=>({...e.boss,type:'boss',boss:true,phase:1,health:e.boss.hp,maxHealth:e.boss.hp}));
+bosses.push({...bosses[4],name:'周啸天 · 第二式',phase:2});
+function select(){document.querySelectorAll('[data-group]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.group===group)));document.querySelectorAll('[data-state]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.state===state)));document.querySelector('#labels').replaceChildren(...(group==='troops'?troops:bosses).map(e=>{const s=document.createElement('span');s.textContent=e.name;return s}));}
+document.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{group=b.dataset.group;select()});
+document.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>{state=b.dataset.state;origin=performance.now();select()});
+document.querySelector('#face').onclick=()=>{facing*=-1;document.querySelector('#face').textContent=facing>0?'转为向左':'转为向右'};
+select();
+function draw(now){
+ const ready=world.characterTemplates.size===4;
+ document.querySelector('#status').textContent=ready?(group==='troops'?'五类小兵 + 精英':'五位头目 + 最终第二阶段')+' · '+(state==='play'?'连续动作':'关键姿态')+' · 本地 glTF 已加载':'正在加载本地模型…';
+ if(ready){
+  const enemies=(group==='troops'?troops:bosses).map((e,i)=>{
+   const kind=['charger','ram'].includes(e.style)||e.type==='charger'?'charge':e.style==='ranged'||e.style==='dart'?'projectile':e.style==='slam'||e.type==='heavy'?'slam':'line';
+   const move={startup:.75,active:.22,recovery:.8,kind};
+   const t=((now-origin)/1000)%2.4;
+   const phase=state==='play'?(t<.75?'windup':t<.97?'strike':t<1.77?'recover':'idle'):state==='guard'?'idle':state;
+   return {...e,id:'review-'+i,x:-7+i*2.8,y:0,z:0,facing,move,state:phase,action:phase==='hurt'?'hit':phase==='windup'?'warning':phase==='strike'?'heavy':'idle',guard:state==='guard',hurtT:phase==='hurt'?.18:0,
+    windup:state==='play'?Math.max(0,.75-t):.06,strikeT:.2,recoverT:state==='play'?Math.max(0,1.77-t):.4,moveT:phase==='walk'?(now-origin)/1000:0};
+  });
+  world.syncActors(null,enemies);
+ }
+ const aspect=canvas.clientWidth/canvas.clientHeight;world.camera.left=-8.5;world.camera.right=8.5;world.camera.top=8.5/aspect;world.camera.bottom=-8.5/aspect;world.camera.updateProjectionMatrix();world.camera.position.set(0,3.8,22);world.camera.lookAt(0,1.1,0);world.renderer.render(world.scene,world.camera);requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script></html>

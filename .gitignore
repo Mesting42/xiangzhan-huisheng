@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.DS_Store
+
+# Local configuration and tool output
+.env
+.env.*
+!.env.example
+*.log
+.vite/
+.cache/
+coverage/
+
+# Original download archives and duplicate extraction copies stay local.
+# All resources required to run the game are versioned under public/.
+/assets/models/*/source/
+/assets/models/*/gltf/

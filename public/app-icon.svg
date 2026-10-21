@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">巷战回声</title>
+  <desc id="desc">守住街巷武馆的朱印图标。</desc>
+  <defs>
+    <linearGradient id="bg" x1=".12" y1="0" x2=".88" y2="1">
+      <stop offset="0" stop-color="#213d38"/>
+      <stop offset="1" stop-color="#10231f"/>
+    </linearGradient>
+    <linearGradient id="seal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d77552"/>
+      <stop offset="1" stop-color="#a73f32"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff2d7"/>
+      <stop offset="1" stop-color="#dfbd80"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#bg)"/>
+  <path d="M45 420h422" stroke="#c89c63" stroke-width="3" opacity=".25"/>
+  <g transform="rotate(-7 256 256)" fill="none" stroke="url(#seal)">
+    <rect x="74" y="74" width="364" height="364" rx="30" stroke-width="15"/>
+    <rect x="99" y="99" width="314" height="314" rx="18" stroke-width="5" opacity=".7"/>
+  </g>
+  <path d="M160 365V207c0-54 43-98 96-98s96 44 96 98v158" fill="none" stroke="#e4b36d" stroke-width="15" stroke-linecap="round"/>
+  <path d="M139 205h234M139 371h234" fill="none" stroke="#e4b36d" stroke-width="15" stroke-linecap="round"/>
+  <path d="M190 220v144m132-144v144" fill="none" stroke="#e4b36d" stroke-width="7" opacity=".72"/>
+  <text x="256" y="325" text-anchor="middle" font-family="STKaiti,KaiTi,Noto Serif CJK SC,serif" font-size="160" font-weight="700" fill="url(#paper)">守</text>
+  <path d="M367 133c25 8 42 26 49 49m-39-79c40 11 66 38 78 78" fill="none" stroke="#f1c880" stroke-width="11" stroke-linecap="round" opacity=".94"/>
+  <circle cx="383" cy="139" r="12" fill="#d16948"/>
+</svg>

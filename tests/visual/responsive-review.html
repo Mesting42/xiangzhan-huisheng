@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>三端界面检查 · 巷战回声</title></head><body>
+<main id="game"><canvas id="world" aria-label="巷战回声 3D 战场"></canvas><div id="screen"></div><div id="hud" class="hud"></div><div id="toast" class="toast"></div><div id="touch-controls" class="touch-controls"><div class="stick-wrap"><div class="stick-base"><div id="stick-knob" class="stick-knob"></div></div><span>移动</span></div><div class="touch-actions"><button class="touch-button" data-action="light">轻拳</button><button class="touch-button" data-action="heavy">重击</button><button class="touch-button" data-action="jump">跳跃</button><button class="touch-button" data-action="dodge">翻滚</button><button class="touch-button" data-action="special">绝招</button><button class="touch-button" data-action="finisher">终结</button></div></div></main>
+<details id="review"><summary>界面检查 · 隔离存档</summary><label>界面 <select id="review-mode"></select></label><p>结算数据是固定检查样本，仅验证真实 UI 的布局；不代表实际通关。</p><output id="input-proof"></output></details>
+<script type="module">
+import '../../src/style.css';
+import { Game } from '../../src/game.js';
+import { UI } from '../../src/ui.js';
+import { freshSave } from '../../src/save.js';
+const game=new Game(document.querySelector('canvas')); game.save=freshSave(); game.save.completed=[0,1,2,3,4]; game.save.unlockedLevel=4;game.save.unlockedFighters=['lin','qiao','tie'];game.persist=()=>true; game.ui=new UI(game);
+const views=[['menu','主菜单'],['character','角色选择'],['intro','关卡介绍'],['training-ready','练习说明'],['training','实战练习'],['bossIntro','Boss 入场'],['pause','暂停'],['settings','设置'],['levels','章节'],['records','记录'],['result','通关结算'],['defeat','失败'],['victory','最终结局']];
+const select=document.querySelector('#review-mode');
+for(const [id,label] of views){const option=document.createElement('option');option.value=id;option.textContent=label;select.append(option)}
+function show(mode){game.audio.stopMusic();game.prepareStage(true);game.launchIntent='training';game.trainingDrill='boss';game.lastResult={level:0,time:142,hits:93,damageTaken:47,bestCombo:16,pickups:4,score:32750,reward:5,grade:'A',fighter:'lin',unlocks:['乔小满加入','新的练习项目']}; if(['training','bossIntro'].includes(mode)){game.startTraining();if(mode==='bossIntro'){game.enemies=[game.makeBoss()];game.bossIntroT=999;game.goto('bossIntro');return}}game.goto(mode);}
+select.onchange=()=>show(select.value);show('menu');
+const style=document.createElement('style');style.textContent='#review{position:fixed;z-index:200;bottom:0;left:0;max-width:240px;background:#122c28;color:#ebd8ab;font:12px system-ui}#review summary{cursor:pointer;padding:5px}#review select{min-height:36px}#review p{padding:8px}';document.head.append(style);
+let previous=performance.now();function frame(now){let dt=Math.min(.05,(now-previous)/1000);previous=now;game.update(dt);game.updateWorld(dt);document.querySelector('#input-proof').textContent='输入 '+game.input.touchDown.size+' 键 · 摇杆 '+game.input.touchMove.x.toFixed(2)+','+game.input.touchMove.z.toFixed(2);requestAnimationFrame(frame)}requestAnimationFrame(frame);
+</script></body></html>

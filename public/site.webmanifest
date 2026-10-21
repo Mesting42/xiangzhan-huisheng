@@ -1,0 +1,16 @@
+{
+  "id": "/",
+  "name": "巷战回声",
+  "short_name": "巷战回声",
+  "description": "守住一间武馆，打穿五段街巷。",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#101918",
+  "theme_color": "#172d29",
+  "icons": [
+    { "src": "/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

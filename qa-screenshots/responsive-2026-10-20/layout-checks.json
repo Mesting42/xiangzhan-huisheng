@@ -1,0 +1,1185 @@
+[
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "menu",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "主菜单",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "character",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "角色选择",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "intro",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "关卡介绍",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "training-ready",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "训练场说明",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "training",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "训练场",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "bossIntro",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "头目登场",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "pause",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "暂停菜单",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "settings",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "设置",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "levels",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "关卡选择",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "records",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "街坊手记",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "result",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "关卡结算",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "defeat",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "失败结算",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1440,
+      "height": 900
+    },
+    "view": "victory",
+    "bossOverlap": false,
+    "h": 900,
+    "overflow": [],
+    "screen": "胜利结局",
+    "touch": [],
+    "w": 1440
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "menu",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "主菜单",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "character",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "角色选择",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "intro",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "关卡介绍",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "training-ready",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "训练场说明",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "training",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "训练场",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "bossIntro",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "头目登场",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "pause",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "暂停菜单",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "settings",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "设置",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "levels",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "关卡选择",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "records",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "街坊手记",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "result",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "关卡结算",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "defeat",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "失败结算",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 1024,
+      "height": 768
+    },
+    "view": "victory",
+    "bossOverlap": false,
+    "h": 768,
+    "overflow": [],
+    "screen": "胜利结局",
+    "touch": [],
+    "w": 1024
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "menu",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "主菜单",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "character",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "角色选择",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "intro",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "关卡介绍",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "training-ready",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "训练场说明",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "training",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "训练场",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "bossIntro",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "头目登场",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "pause",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "暂停菜单",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "settings",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "设置",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "levels",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "关卡选择",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "records",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "街坊手记",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "result",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "关卡结算",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "defeat",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "失败结算",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 768,
+      "height": 1024
+    },
+    "view": "victory",
+    "bossOverlap": false,
+    "h": 1024,
+    "overflow": [],
+    "screen": "胜利结局",
+    "touch": [],
+    "w": 768
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "menu",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "主菜单",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "character",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "角色选择",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "intro",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "关卡介绍",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "training-ready",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "训练场说明",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "training",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "训练场",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "bossIntro",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "头目登场",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "pause",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "暂停菜单",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "settings",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "设置",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "levels",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "关卡选择",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "records",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "街坊手记",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "result",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "关卡结算",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "defeat",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "失败结算",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 844,
+      "height": 390
+    },
+    "view": "victory",
+    "bossOverlap": false,
+    "h": 390,
+    "overflow": [],
+    "screen": "胜利结局",
+    "touch": [],
+    "w": 844
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "menu",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "主菜单",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "character",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "角色选择",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "intro",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "关卡介绍",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "training-ready",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "训练场说明",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "training",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "训练场",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "bossIntro",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "头目登场",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "pause",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "暂停菜单",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "settings",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "设置",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "levels",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "关卡选择",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "records",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "街坊手记",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "result",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "关卡结算",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "defeat",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "失败结算",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "view": "victory",
+    "bossOverlap": false,
+    "h": 844,
+    "overflow": [],
+    "screen": "胜利结局",
+    "touch": [],
+    "w": 390
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "menu",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "主菜单",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "character",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "角色选择",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "intro",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "关卡介绍",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "training-ready",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "训练场说明",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "training",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "训练场",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "bossIntro",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "头目登场",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "pause",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "暂停菜单",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "settings",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "设置",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "levels",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "关卡选择",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "records",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "街坊手记",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "result",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "关卡结算",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "defeat",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "失败结算",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 320,
+      "height": 568
+    },
+    "view": "victory",
+    "bossOverlap": false,
+    "h": 568,
+    "overflow": [],
+    "screen": "胜利结局",
+    "touch": [],
+    "w": 320
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "menu",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "主菜单",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "character",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "角色选择",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "intro",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "关卡介绍",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "training-ready",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "训练场说明",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "training",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "训练场",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "bossIntro",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "头目登场",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "pause",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "暂停菜单",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "settings",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "设置",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "levels",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "关卡选择",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "records",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "街坊手记",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "result",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "关卡结算",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "defeat",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "失败结算",
+    "touch": [],
+    "w": 568
+  },
+  {
+    "size": {
+      "width": 568,
+      "height": 320
+    },
+    "view": "victory",
+    "bossOverlap": false,
+    "h": 320,
+    "overflow": [],
+    "screen": "胜利结局",
+    "touch": [],
+    "w": 568
+  }
+]

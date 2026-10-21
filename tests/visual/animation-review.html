@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人物动作检查 · 巷战回声</title>
+<style>
+  *{box-sizing:border-box}body{margin:0;background:#19251f;color:#eee2c6;font:16px system-ui,sans-serif}main{max-width:1600px;margin:auto;padding:24px}h1{font-size:24px;margin:0 0 10px}p{color:#c6bba2;line-height:1.6}nav{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}button{font:inherit;border:1px solid #b6a077;background:#29382f;color:inherit;padding:10px 18px;cursor:pointer}button[aria-pressed=true]{background:#a14f36}canvas{display:block;width:100%;height:390px}#labels{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:17px;padding:14px 0}#status{min-height:28px}
+</style>
+<main>
+<h1>人物动作检查</h1>
+<p>直接使用游戏的模型、骨骼驱动和招式时间。比较防守、蓄力、命中与收招，检查翻滚收身、整圈转动与恢复；也可播放完整动作或检查左朝向。</p>
+<nav id="fighters"></nav><nav id="phase"><button data-phase="load">蓄力帧</button><button data-phase="impact" aria-pressed="true">命中帧</button><button data-phase="recovery">收招帧</button><button data-phase="play">播放动作</button><button id="face">转为向左</button></nav>
+<div id="status">正在加载本地角色资源…</div>
+<canvas id="review" aria-label="七种动作并排比较"></canvas>
+<div id="labels"><span>防守待机</span><span>轻拳</span><span>重击</span><span>空中攻击</span><span>角色绝招</span><span>终结技</span><span>翻滚</span></div>
+</main>
+<script type="module">
+import { WorldRenderer } from "../../src/renderer.js";
+import { FIGHTERS } from "../../src/data.js";
+import { getMove, attackTotal } from "../../src/combat.js";
+const canvas=document.querySelector('canvas'), world=new WorldRenderer(canvas,{quality:'high',effects:0,shake:0});
+let fighter=FIGHTERS[0], phase='impact', facing=1, origin=performance.now();
+const kinds=['idle','light','heavy','air','special','finisher','dodge'];
+for(const data of FIGHTERS){const b=document.createElement('button');b.textContent=data.name;b.onclick=()=>{fighter=data;renderButtons()};b.dataset.fighter=data.id;document.querySelector('#fighters').append(b)}
+function renderButtons(){document.querySelectorAll('[data-fighter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.fighter===fighter.id)));document.querySelectorAll('[data-phase]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.phase===phase)))}
+document.querySelectorAll('[data-phase]').forEach(b=>b.onclick=()=>{phase=b.dataset.phase;origin=performance.now();renderButtons()});
+document.querySelector('#face').onclick=()=>{facing*=-1;document.querySelector('#face').textContent=facing>0?'转为向左':'转为向右'};
+renderButtons();
+function draw(now){
+  const ready=world.characterTemplates.has('male')&&world.characterTemplates.has('female');
+  document.querySelector('#status').textContent=ready?fighter.name+' · '+(phase==='play'?'完整时间播放':'固定关键帧')+' · '+(facing>0?'向右':'向左'):'正在加载本地角色资源…';
+  if(ready){
+    kinds.forEach((action,i)=>{
+      const id='clip-'+i;
+      let actor=world.actors.get(id);
+      if(!actor){actor=world.makeActor(world.fighterVisual(fighter));world.actorGroup.add(actor.group);world.actors.set(id,actor)}
+      world.attachFighterModel(actor,fighter.id);
+      const move=['special','finisher'].includes(action)?{startup:.3,active:.25,recovery:.5}:getMove(fighter.id,action==='idle'?'light':action);
+      const total=action==='dodge'?.42*fighter.dodge:attackTotal(move);
+      const elapsed=phase==='play'?((now-origin)/1000)%(total+.4):action==='dodge'?(phase==='load'?total*.18:phase==='recovery'?total*.9:total*.5):phase==='load'?move.startup*.5:phase==='recovery'?total-.04:move.startup+move.active*.25;
+      world.syncOne(id,{x:-8.4+i*2.8,y:0,z:0,facing,dodgeDirection:facing,visual:world.fighterVisual(fighter),action:phase==='play'&&elapsed>total?'idle':action,actionElapsed:elapsed,actionTotal:total,attack:['idle','dodge'].includes(action)?null:{move},comboStep:0,airborne:action==='air'});
+      actor.hpBar.visible=false;
+    });
+  }
+  const aspect=canvas.clientWidth/canvas.clientHeight;
+  world.camera.left=-9.8;world.camera.right=9.8;world.camera.top=9.8/aspect;world.camera.bottom=-9.8/aspect;world.camera.updateProjectionMatrix();
+  world.camera.position.set(0,3.8,22);world.camera.lookAt(0,1.1,0);
+  world.renderer.render(world.scene,world.camera);
+  requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+</html>

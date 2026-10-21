@@ -1,0 +1,36 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>敌人实战检查 · 巷战回声</title></head>
+<body><main id="game"><canvas id="world" aria-label="敌人实战检查场"></canvas><div id="screen" class="screen"></div><div id="hud" class="hud"></div><div id="toast" class="toast"></div><div id="touch-controls" class="touch-controls"><div class="stick-wrap"><div class="stick-base"><div id="stick-knob" class="stick-knob"></div></div></div><div class="touch-actions"><button data-action="light" class="touch-button light">轻拳</button><button data-action="heavy" class="touch-button heavy">重击</button><button data-action="jump" class="touch-button jump">跳跃</button><button data-action="dodge" class="touch-button dodge">翻滚</button><button data-action="special" class="touch-button special">绝招</button><button data-action="finisher" class="touch-button finisher">终结</button></div></div></main>
+<aside id="qa"><strong>敌人实战检查 · 隔离场景，不写入主线存档</strong><nav id="fighters"></nav><nav id="scenarios"></nav><nav><button id="reset">重置交手</button><button id="windup">对手出招</button><button id="resume">继续战斗</button><button id="club">放置短棍</button><a href="enemy-review.html">模型对照</a></nav><output id="status">正在加载…</output></aside>
+<script type="module">
+import '../../src/style.css';
+import { Game } from '../../src/game.js';
+import { UI } from '../../src/ui.js';
+import { ENEMIES, LEVELS, FIGHTERS } from '../../src/data.js';
+const style=document.createElement('style');style.textContent='#qa{position:fixed;z-index:100;left:16px;right:16px;bottom:16px;padding:12px 16px;background:#162720ee;border:1px solid #af9874;color:#eee2c6;font:14px system-ui}#qa nav{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}#qa button,#qa a{color:inherit;background:#354a3c;border:1px solid #9f8a68;padding:6px 10px;cursor:pointer;text-decoration:none;font:inherit}#qa button[aria-pressed=true]{background:#a25137}#qa output{display:block;line-height:1.6}';document.head.append(style);
+const game=new Game(document.querySelector('canvas'));game.ui=new UI(game);
+// Isolated scenario runner: use actual input, AI, combat and renderer, while
+// disabling campaign progression so these checks cannot write progress.
+game.updateRoomFlow=()=>{};
+let scenario='swift',fighter='lin',received=0,landed=0,round=0;
+const originalHit=game.applyPlayerHit.bind(game);game.applyPlayerHit=(...args)=>{landed++;return originalHit(...args)};
+const originalDamage=game.takePlayerDamage.bind(game);game.takePlayerDamage=(...args)=>{const hp=game.player.health;originalDamage(...args);if(game.player.health<hp)received++};
+const choices=[...Object.values(ENEMIES).map(e=>({id:e.id,name:e.name})),...LEVELS.map((l,i)=>({id:'boss-'+i,name:l.boss.name})),{id:'boss-4-phase2',name:'周啸天第二式'},{id:'pair-guard',name:'护手 + 掷手'},{id:'pair-heavy',name:'扛把子 + 快手'},{id:'pair-charge',name:'撞街客 + 掷手'}];
+for(const f of FIGHTERS){const b=document.createElement('button');b.textContent=f.name;b.dataset.fighter=f.id;b.onclick=()=>{fighter=f.id;start(scenario)};document.querySelector('#fighters').append(b)}
+for(const c of choices){const button=document.createElement('button');button.textContent=c.name;button.dataset.scenario=c.id;button.onclick=()=>start(c.id);document.querySelector('#scenarios').append(button)}
+function start(id){
+ scenario=id;round++;landed=received=0;game.audio.unlock();game.selectedDifficulty='standard';game.selectedFighter=fighter;game.levelIndex=id.startsWith('boss-')?Number(id.split('-')[1]):0;game.prepareStage(false);game.waveSpawned=true;game.tutorial.enabled=false;game.player.x=-1.3;game.player.energy=100;game.player.health=game.player.maxHealth=500;
+ const pair=id==='pair-guard'?['guard','ranged']:id==='pair-heavy'?['heavy','swift']:id==='pair-charge'?['charger','ranged']:null;
+ const foe=id.startsWith('boss-')?game.makeBoss():game.makeEnemy(pair?pair[0]:id,1.0,0);foe.x=1.0;foe.z=0;foe.cooldown=.5;game.enemies=[foe];
+ if(pair)game.enemies.push(game.makeEnemy(pair[1],-4.0,.8));game.projectiles=[];game.input.clear();game.renderer.resetActor('player');game.mode='play';game.ui.render('play');
+ if(id.endsWith('phase2'))game.changeBossPhase(foe);
+ document.querySelectorAll('[data-scenario]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scenario===id)));
+ document.querySelectorAll('[data-fighter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.fighter===fighter)));
+}
+document.querySelector('#reset').onclick=()=>start(scenario);
+document.querySelector('#club').onclick=()=>{game.drops=game.drops.filter(d=>d.type!=='club');game.spawnDrop('club',game.player.x,game.player.z);game.ui.toast('短棍已放在脚边 · E 拾取，G 投掷');};
+document.querySelector('#windup').onclick=()=>{game.mode='play';game.ui.render('play');const enemy=game.enemies[0];if(enemy&&enemy.health>0){enemy.cooldown=0;game.startEnemyWindup(enemy)}game.input.clear()};
+document.querySelector('#resume').onclick=()=>{if(game.mode==='pause')game.resumeGame();game.input.clear()};
+start(scenario);
+let previous=performance.now();
+function frame(now){const dt=Math.min(.05,(now-previous)/1000);previous=now;game.update(dt);game.updateWorld(dt);const enemy=game.enemies[0],actor=enemy&&game.renderer.actors.get(enemy.id);document.querySelector('#status').textContent='交手 '+round+' · '+(enemy?.name||'对手已击败')+' · 状态 '+(enemy?.state||'ko')+' · 对手生命 '+(enemy?.health||0)+' / '+(enemy?.maxHealth||0)+' · 玩家生命 '+game.player.health+' · 玩家命中 '+landed+' · 敌人命中 '+received+' · '+(actor?.enemyModel?'本地骨骼模型已接入':'等待模型')+' · 模式 '+game.mode;requestAnimationFrame(frame)}requestAnimationFrame(frame);
+</script></body></html>
