@@ -165,3 +165,14 @@ Boss 稳势蓄力和关键攻击仍正常扣血，但不会被每次轻拳打断
 - [Universal Base Characters](https://quaternius.itch.io/universal-base-characters)
 - [Modular Character Outfits - Fantasy](https://quaternius.itch.io/modular-character-outfits-fantasy)
 - [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
+
+<!-- pixel-pier-game-listing:start -->
+## Game listing / 游戏展示
+
+- **Game developer / 游戏开发者:** Mest ([@Mesting42](https://github.com/Mesting42))
+- **Pixel Pier listing / 游戏展示页面:** [Alley Echoes](https://riverglint.link/games/xiangzhan-huisheng/)
+
+This game is listed on Pixel Pier with a play entry and game guide. This link identifies a game-development and listing relationship; it does not identify the developer as the website operator or operating entity.
+
+本游戏在 Pixel Pier 展示，并提供游玩入口与游戏指南。此链接仅表示游戏开发与展示关联，不代表开发者是该网站的运营者或运营主体。
+<!-- pixel-pier-game-listing:end -->
